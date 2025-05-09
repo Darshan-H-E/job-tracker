@@ -1,8 +1,7 @@
-// client/src/components/JobForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = '/api/jobs';
+const API_URL_LOCAL = '/api/jobs';
 
 function JobForm({ onJobCreated }) {
   const [jobTitle, setJobTitle] = useState('');
@@ -18,11 +17,8 @@ function JobForm({ onJobCreated }) {
       return;
     }
     try {
-      const response = await axios.post(API_URL, { jobTitle, customerName, description });
+      const response = await axios.post(API_URL_LOCAL, { jobTitle, customerName, description });
       onJobCreated(response.data);
-      setJobTitle('');
-      setCustomerName('');
-      setDescription('');
     } catch (err) {
       console.error('Error creating job:', err);
       setError('Failed to create job. Please try again.');
@@ -34,7 +30,7 @@ function JobForm({ onJobCreated }) {
       <h2>Create New Job</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
-        <label htmlFor="jobTitle">Job Title:</label> 
+        <label htmlFor="jobTitle">Job Title:</label>
         <input
           type="text"
           id="jobTitle"

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import JobForm from './components/JobForm';
 import KanbanBoard from './components/KanbanBoard';
+import CreateJobPage from './pages/CreateJobPage';
 import './App.css';
 
 const API_URL = '/api/jobs';
@@ -40,7 +41,6 @@ function App() {
         job.id === jobId ? { ...job, status: newStatus } : job
       )
     );
-
     try {
       await axios.put(`${API_URL}/${jobId}/status`, { status: newStatus });
     } catch (err) {
@@ -52,15 +52,32 @@ function App() {
 
   return (
     <div className="App">
-      <h1 id="page-title">HVAC Job Tracker</h1>
-      <JobForm onJobCreated={handleJobCreated} />
+      <header className="app-header">
+        <h1>HVAC Job Tracker</h1>
+        <Link to="/create-job" className="create-job-button">
+          <span className="material-icons">add_circle_outline</span> Create New Job
+        </Link>
+      </header>
       
       {loading && <p>Loading jobs...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
       
-      {!loading && !error && (
-        <KanbanBoard jobs={jobs} onJobStatusChange={handleJobStatusChange} />
-      )}
+      <main>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              !loading && !error && (
+                <KanbanBoard jobs={jobs} onJobStatusChange={handleJobStatusChange} />
+              )
+            } 
+          />
+          <Route 
+            path="/create-job" 
+            element={<CreateJobPage onJobCreated={handleJobCreated} />} 
+          />
+        </Routes>
+      </main>
     </div>
   );
 }

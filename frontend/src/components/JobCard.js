@@ -1,4 +1,3 @@
-// client/src/components/JobCard.js
 import React from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 
