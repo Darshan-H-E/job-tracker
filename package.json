@@ -1,0 +1,22 @@
+{
+  "name": "HVAC Job Tracker App",
+  "version": "1.0.0",
+  "main": "server/src/server.js",
+  "type": "module",
+  "scripts": {
+  "dev": "nodemon backend/src/server.js",
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+  "start": "node backend/src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [],
+  "author": "Darshan Eshwarappa",
+  "license": "ISC"
+}

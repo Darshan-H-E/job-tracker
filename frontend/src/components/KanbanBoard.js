@@ -1,4 +1,3 @@
-// client/src/components/KanbanBoard.js
 import React from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
 import KanbanColumn from './KanbanColumn';
@@ -8,7 +7,7 @@ const STATUSES = ["Not Yet Started", "In Progress", "Completed"];
 function KanbanBoard({ jobs, onJobStatusChange }) {
 
   const handleOnDragEnd = (result) => {
-    if (!result.destination) return; // Dropped outside a droppable area
+    if (!result.destination) return;
 
     const { source, destination, draggableId } = result;
 
@@ -17,9 +16,6 @@ function KanbanBoard({ jobs, onJobStatusChange }) {
       return;
     }
 
-    // Call the parent function to update the job's status
-    // draggableId is the job.id
-    // destination.droppableId is the new status
     onJobStatusChange(draggableId, destination.droppableId);
   };
 
@@ -31,7 +27,7 @@ function KanbanBoard({ jobs, onJobStatusChange }) {
             key={status}
             status={status}
             jobs={jobs.filter(job => job.status === status)}
-            onStatusChange={onJobStatusChange} // Pass this down if using non-DND updates
+            onStatusChange={onJobStatusChange}
           />
         ))}
       </div>

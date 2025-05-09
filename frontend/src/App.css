@@ -1,0 +1,243 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #343a40;
+  line-height: 1.6;
+}
+
+.App {
+  padding: 1.25rem;
+  padding-top: 0;
+  max-width: 81.25rem;
+  margin: 1.25rem auto;
+}
+
+h1, h2, h3, h4 {
+  color: #0d3c61;
+  margin-bottom: 0.75em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.875rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 0.125rem solid #dee2e6;
+  padding-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+#page-title {
+  font-style: italic;
+}
+
+.job-form {
+  background-color: #ffffff;
+  padding: 1.5625rem 1.875rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+}
+
+.job-form div {
+  margin-bottom: 1.25rem;
+}
+
+.job-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.job-form input[type="text"],
+.job-form textarea {
+  width: calc(100% - 1.5rem);
+  padding: 0.75rem;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.job-form input[type="text"]:focus,
+.job-form textarea:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.125rem rgba(0, 123, 255, 0.25);
+}
+
+.job-form textarea {
+  min-height: 6.25rem;
+  resize: vertical;
+}
+
+.job-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.job-form button:hover {
+  background-color: #0056b3;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 1.5625rem;
+  justify-content: space-around;
+  overflow-x: auto;
+  padding-bottom: 0.625rem;
+}
+
+.kanban-column {
+  background-color: #e9ecef;
+  border-radius: 0.625rem;
+  padding: 0.9375rem;
+  width: 21.875rem;
+  min-height: 31.25rem;
+  box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column h3 {
+  text-align: center;
+  margin-top: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.125rem solid #adb5bd;
+  color: #495057;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-list {
+  flex-grow: 1;
+  min-height: 9.375rem;
+  padding: 0.625rem 0.3125rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+}
+
+.job-list.dragging-over {
+  background-color: #d1e7fd;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border-left: 0.3125rem solid;
+  border-radius: 0.5rem;
+  padding: 0.9375rem 1.25rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.07);
+  cursor: grab;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  box-shadow: 0 0.3125rem 0.75rem rgba(0,0,0,0.1);
+  transform: translateY(-0.125rem);
+}
+
+.job-card-title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #212529;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.job-card-detail {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+.job-card-icon {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  color: #868e96;
+  position: relative;
+  top: 0.0625rem;
+}
+
+.job-card-detail p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.job-card p.job-description {
+  color: #495057;
+}
+
+.job-card p.job-id-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  padding-top: 0.12rem;
+  color: #adb5bd;
+}
+
+.job-card .status-text {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+  display: inline-block;
+  margin-top: auto;
+  align-self: flex-end;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-card.status-not-yet-started {
+  border-left-color: #6c757d;
+}
+.job-card.status-not-yet-started .status-text {
+  background-color: #6c757d;
+  color: white;
+}
+
+.job-card.status-in-progress {
+  border-left-color: #ffc107;
+}
+.job-card.status-in-progress .status-text {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.job-card.status-completed {
+  border-left-color: #28a745;
+}
+.job-card.status-completed .status-text {
+  background-color: #28a745;
+  color: white;
+}
+
+.job-card.dragging {
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  transform: rotate(2deg) translateY(-0.0625rem);
+  border-left-width: 0.3125rem;
+}
+
+.kanban-column .job-list[data-rbd-droppable-context-id] {}
