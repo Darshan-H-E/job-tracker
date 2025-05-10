@@ -50,7 +50,7 @@ The project is organized into two main directories:
 
 ## Quickstart
 
-1.  **Clone the repository (if applicable):**
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/Darshan-H-E/job-tracker.git
     cd job-tracker
@@ -59,7 +59,7 @@ The project is organized into two main directories:
     ```bash
     npm run build
     ```
-3.  **Clone the repository (if applicable):**
+3.  **Run the app:**
     ```bash
     npm start
     ```
