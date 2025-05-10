@@ -53,7 +53,7 @@ The project is organized into two main directories:
 1.  **Clone the repository (if applicable):**
     ```bash
     git clone https://github.com/Darshan-H-E/job-tracker.git
-    cd hvac-job-tracker
+    cd job-tracker
     ```
 2.  **Build the frontend**
     ```bash
